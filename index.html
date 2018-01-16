@@ -1,7 +1,6 @@
 <html>
 
 <body>
-  // Add to the body of the page:
   <div id="LoginWithAmazon"> </div>  
   
   <script>
@@ -20,7 +19,7 @@
         language: "LANGUAGE_PARAMETER",
 
         authorization: function() { 
-          loginOptions = {scope: "SCOPES", popup: "POPUP_PARAMETER"}; 
+          loginOptions = {scope: "payments:widget", popup: "POPUP_PARAMETER"}; 
           authRequest = amazon.Login.authorize (loginOptions, "REDIRECT_URL"); 
         }, 
 
@@ -38,7 +37,6 @@
       src='https://static-eu.payments-amazon.com/OffAmazonPayments/gbp/sandbox/lpa/js/Widgets.js'>
   </script>
 
-  . . .
    
   <script type="text/javascript">
     document.getElementById('Logout').onclick = function() {
