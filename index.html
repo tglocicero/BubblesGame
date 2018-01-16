@@ -1,28 +1,50 @@
 <html>
 
-// In the head of the web page:
-<head>
-  <script type='text/javascript'>
-    window.onAmazonLoginReady = function() {
-      amazon.Login.setClientId('YOUR-CLIENT-ID');
+<body>
+  // Add to the body of the page:
+  <div id="LoginWithAmazon"> </div>  
+  
+  <script>
+    window.onAmazonLoginReady = function() { 
+      amazon.Login.setClientId('amzn1.application-oa2-client.2f36480d8a284644a87c752920fd6d57'); 
+    };
+    
+    window.onAmazonPaymentsReady = function(){
+      // render the button here
+      var authRequest; 
+      
+      OffAmazonPayments.Button("LoginWithAmazon", "A26EDUPKE5MR47", { 
+        type:  "TYPE_PARAMETER", 
+        color: "COLOR_PARAMETER", 
+        size:  "SIZE_PARAMETER", 
+        language: "LANGUAGE_PARAMETER",
+
+        authorization: function() { 
+          loginOptions = {scope: "SCOPES", popup: "POPUP_PARAMETER"}; 
+          authRequest = amazon.Login.authorize (loginOptions, "REDIRECT_URL"); 
+        }, 
+
+        onError: function(error) { 
+          // your error handling code.
+          // alert("The following error occurred: " 
+          //        + error.getErrorCode() 
+          //        + ' - ' + error.getErrorMessage());
+        } 
+      });
+    }
+  </script>
+ 
+  <script async="async" type='text/javascript' 
+      src='https://static-eu.payments-amazon.com/OffAmazonPayments/gbp/sandbox/lpa/js/Widgets.js'>
+  </script>
+
+  . . .
+   
+  <script type="text/javascript">
+    document.getElementById('Logout').onclick = function() {
+      amazon.Login.logout();
     };
   </script>
-</head>
-
-// In the body of the page:
-<div id="LoginWithAmazon"></div>
-
-<script>
-  window.onAmazonPaymentsReady = function(){
-    // render the button here
-    OffAmazonPayments.Button('LoginWithAmazon',
-                         '<Your-Seller-ID>', {
-      ...
-  }
-</script>
-
-<script async='async' type='text/javascript' src=' https://static-na.payments-amazon.
-com/OffAmazonPayments/us/sandbox/js/Widgets.js'>
-</script>
+</body>
 
 </html>
