@@ -41,7 +41,7 @@
 </html> -->
 
 <html>
-// In the head of the web page:
+
 <head>
   <script type='text/javascript'>
     window.onAmazonLoginReady = function() {
@@ -51,9 +51,7 @@
 </head>
 
 <body>
-// In the body of the page:
 <div id="LoginWithAmazon"></div>
-
 <script>
   window.onAmazonPaymentsReady = function(){
     // render the button here
@@ -62,8 +60,7 @@
 	}
 </script>
 
-<script async='async' type='text/javascript' src=' https://static-na.payments-amazon.
-com/OffAmazonPayments/us/sandbox/js/Widgets.js'>
+<script async='async' type='text/javascript' src=' https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js'>
 </script>
 
 Amazon Pay Button:
@@ -78,7 +75,7 @@ Amazon Pay Button:
       loginOptions =
         {scope: "payments:widget", popup: "true"};
       authRequest = amazon.Login.authorize (loginOptions,
-        "https://www.google.com");
+        "https://tglocicero.github.io/");
     },
     onError: function(error) {
       // your error handling code
