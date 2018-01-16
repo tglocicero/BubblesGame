@@ -70,15 +70,14 @@ Amazon Pay Button:
 <script type="text/javascript">
   var authRequest;
   OffAmazonPayments.Button("AmazonPayButton", "A26EDUPKE5MR47", {
-    type:  "ENTER_TYPE_PARAMETER",
-    color: "ENTER_COLOR_PARAMETER",
-    size:  "ENTER_SIZE_PARAMETER",
+    type:  "LwA",
+    color: "Gold",
 
     authorization: function() {
       loginOptions =
-        {scope: "ENTER_SCOPES", popup: "ENTER_POPUP_PARAMETER"};
+        {scope: "payments:widget", popup: "true"};
       authRequest = amazon.Login.authorize (loginOptions,
-        "YOUR_REDIRECT_URL ");
+        "https://www.google.com");
     },
     onError: function(error) {
       // your error handling code
