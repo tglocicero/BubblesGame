@@ -45,7 +45,7 @@
 <head>
   <script type='text/javascript'>
     window.onAmazonLoginReady = function() {
-      amazon.Login.setClientId('amzn1.application-oa2-client.2f36480d8a284644a87c752920fd6d57');
+      amazon.Login.setClientId('YOUR-CLIENT-ID');
     };
   </script>
 </head>
@@ -57,12 +57,36 @@
   window.onAmazonPaymentsReady = function(){
     // render the button here
     OffAmazonPayments.Button('LoginWithAmazon',
-                         'A26EDUPKE5MR47', {}
+                         '<Your-Seller-ID>', {
+      ...
+  }
 </script>
 
 <script async='async' type='text/javascript' src=' https://static-na.payments-amazon.
 com/OffAmazonPayments/us/sandbox/js/Widgets.js'>
 </script>
+
+Amazon Pay Button:
+<div id="AmazonPayButton"/>
+<script type="text/javascript">
+  var authRequest;
+  OffAmazonPayments.Button("AmazonPayButton", "YOUR_MERCHANT_ID ", {
+    type:  "ENTER_TYPE_PARAMETER",
+    color: "ENTER_COLOR_PARAMETER",
+    size:  "ENTER_SIZE_PARAMETER",
+
+    authorization: function() {
+      loginOptions =
+        {scope: "ENTER_SCOPES", popup: "ENTER_POPUP_PARAMETER"};
+      authRequest = amazon.Login.authorize (loginOptions,
+        "YOUR_REDIRECT_URL ");
+    },
+    onError: function(error) {
+      // your error handling code
+    }
+  });
+</script>
+
 </html>
 
 
