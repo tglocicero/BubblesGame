@@ -44,9 +44,18 @@
 <header>
 	<title>Amazon Test</title>
 </header>
-<body>
-This is the page I'm using to setup the amazon widgets.
-<br>
-link: 
-</body>
+<head>
+// your head section here
+<script type='text/javascript'>
+  window.onAmazonLoginReady = function() {
+    amazon.Login.setClientId('YOUR_CLIENT_ID');
+  };
+</script>
+
+<script async='async' type='text/javascript'
+  src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/
+    Widgets.js'>
+</script>
+// your head section here
+</head>
 </html>
