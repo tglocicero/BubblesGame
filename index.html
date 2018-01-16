@@ -20,7 +20,7 @@
 
         authorization: function() { 
           loginOptions = {scope: "profile", popup: "POPUP_PARAMETER"}; 
-          authRequest = amazon.Login.authorize (loginOptions, "REDIRECT_URL"); 
+          authRequest = amazon.Login.authorize (loginOptions, "success.html"); 
         }, 
 
         onError: function(error) { 
