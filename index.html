@@ -1,15 +1,23 @@
 <html>
 
+<head>
+	<script>
+	  window.onAmazonLoginReady = function() { 
+	    amazon.Login.setClientId('amzn1.application-oa2-client.2f36480d8a284644a87c752920fd6d57'); 
+	  };
+	</script>
+
+	<script async="async" type='text/javascript' 
+      src='https://static-eu.payments-amazon.com/OffAmazonPayments/gbp/sandbox/lpa/js/Widgets.js'>
+  	</script>
+</head>
+
 <body>
   <div id="LoginWithAmazon"> </div>  
   <button type="button" id="Logout">Logout</button>
   
   <script>
-    window.onAmazonLoginReady = function() { 
-      amazon.Login.setClientId('amzn1.application-oa2-client.2f36480d8a284644a87c752920fd6d57'); 
-    };
-    
-    window.onAmazonPaymentsReady = function(){
+	window.onAmazonPaymentsReady = function(){
       // render the button here
       var authRequest; 
       
@@ -33,11 +41,6 @@
       });
     }
   </script>
- 
-  <script async="async" type='text/javascript' 
-      src='https://static-eu.payments-amazon.com/OffAmazonPayments/gbp/sandbox/lpa/js/Widgets.js'>
-  </script>
-
    
   <script type="text/javascript">
     document.getElementById('Logout').onclick = function() {
