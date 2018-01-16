@@ -1,98 +1,28 @@
-<!-- <!DOCTYPE html>
-<html>
-<title>Bubbles - Tucker LoCicero</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-    body, h1 {
-        font-family: "Raleway", sans-serif
-    }
-
-    body, html {
-        height: 100%
-    }
-
-    .bgimg {
-        background-image: url("img/bg.png");
-        min-height: 100%;
-        background-position: center;
-        background-size: cover;
-    }
-</style>
-<body>
-
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-    <div class="w3-display-middle">
-        <h1 class="w3-jumbo w3-animate-top">Bubbles</h1>
-	<p class="w3-large w3-center">Tap <a href="https://itunes.apple.com/us/app/bubbles-grow/id1244567203?mt=8">here</a> to download for iOS.
-        <hr class="w3-border-grey" style="margin:auto;width:40%">
-        <p class="w3-large w3-center">a game by Tucker LoCicero</p>
-        <p class="w3-large w3-center">for support, email tglocicero@gmail.com</p>
-    </div>
-</div>
-
-<iframe width="100%" height="100%"
-        src="https://www.youtube.com/embed/JOa0ewCNzDA">
-</iframe>
-
-</body>
-</html> -->
-
 <html>
 
+// In the head of the web page:
 <head>
   <script type='text/javascript'>
     window.onAmazonLoginReady = function() {
-      amazon.Login.setClientId('amzn1.application-oa2-client.2f36480d8a284644a87c752920fd6d57');
+      amazon.Login.setClientId('YOUR-CLIENT-ID');
     };
   </script>
 </head>
 
-<body>
+// In the body of the page:
 <div id="LoginWithAmazon"></div>
+
 <script>
   window.onAmazonPaymentsReady = function(){
     // render the button here
     OffAmazonPayments.Button('LoginWithAmazon',
-                         'A26EDUPKE5MR47')
-	}
+                         '<Your-Seller-ID>', {
+      ...
+  }
 </script>
 
-<script async='async' type='text/javascript' src=' https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js'>
+<script async='async' type='text/javascript' src=' https://static-na.payments-amazon.
+com/OffAmazonPayments/us/sandbox/js/Widgets.js'>
 </script>
 
-Amazon Pay Button:
-<div id="AmazonPayButton"/>
-<script type="text/javascript">
-  var authRequest;
-  OffAmazonPayments.Button("AmazonPayButton", "A26EDUPKE5MR47", {
-    type:  "LwA",
-    color: "Gold",
-    size: "@1x: 148 x 30 px",
-
-    authorization: function() {
-      loginOptions =
-        {scope: "payments:widget", popup: "true"};
-      authRequest = amazon.Login.authorize (loginOptions,
-        "https://tglocicero.github.io/");
-    },
-    onError: function(error) {
-      // your error handling code
-    }
-  });
-</script>
-</div>
-</body>
 </html>
-
-
-
-
-
-
-
-
-
-
