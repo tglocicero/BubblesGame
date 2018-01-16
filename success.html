@@ -2,7 +2,7 @@
 
 <body>
   success!
-
+  <button type="button" id="Logout">Logout</button>
   <style type="text/css">
      #walletWidgetDiv{width: 400px; height: 228px;}
   </style>
@@ -30,6 +30,12 @@
 
   <script async="async" type='text/javascript' 
     src='https://static-eu.payments-amazon.com/OffAmazonPayments/gbp/sandbox/lpa/js/Widgets.js'>
+  </script>
+
+  <script type="text/javascript">
+    document.getElementById('Logout').onclick = function() {
+      amazon.Login.logout();
+    };
   </script>
 
 </body>
