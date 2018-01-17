@@ -23,13 +23,11 @@
       var authRequest; 
       
       OffAmazonPayments.Button("LoginWithAmazon", "A26EDUPKE5MR47", { 
-        type:  "TYPE_PARAMETER", 
-        color: "COLOR_PARAMETER", 
-        size:  "SIZE_PARAMETER", 
-        language: "LANGUAGE_PARAMETER",
+        type:  "LwA", 
+        color: "Gold", 
 
         authorization: function() { 
-          loginOptions = {scope: "profile", popup: "POPUP_PARAMETER"}; 
+          loginOptions = {scope: "profile", popup: "true"}; 
           authRequest = amazon.Login.authorize (loginOptions, "success.html"); 
         }, 
 
