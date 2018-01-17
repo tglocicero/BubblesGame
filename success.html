@@ -33,9 +33,12 @@
            // Replace this code with the action that you want to perform
            // after the payment method is selected.
          },
-        onError: function(error) {
-          // your error handling code
-        }
+        onError: function(error) { 
+            // your error handling code.
+            alert("The following error occurred: " 
+              + error.getErrorCode() 
+              + ' - ' + error.getErrorMessage());
+          } 
       }).bind("walletWidgetDiv");
     }
   </script>
