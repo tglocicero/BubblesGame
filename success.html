@@ -50,6 +50,9 @@
         },
         onError: function(error) {
           // your error handling code
+          alert("The following error occurred: " 
+              + error.getErrorCode() 
+              + ' - ' + error.getErrorMessage());
         }
       }).bind("addressBookWidgetDiv");
     }
