@@ -1,0 +1,151 @@
+<html>
+<head>
+  <script type='text/javascript'>
+      window.onAmazonLoginReady = function() {
+          amazon.Login.setClientId('amzn1.application-oa2-client.2f36480d8a284644a87c752920fd6d57');
+      };
+  </script>
+
+  <script type="text/javascript">
+      document.getElementById('Logout').onclick = function() {
+          amazon.Login.logout();
+      };
+  </script>
+
+  <!-- this is the sandbox URL for Widgets.js -->
+  <script type='text/javascript' src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js?sellerId=A26EDUPKE5MR47'>
+  </script>
+
+</head>
+<body>
+
+<h1>Sample One-Page Checkout</h1>
+<p>This sample shows how to display the Address Book, Wallet and Consent widgets.</p>
+<div id="PayWithAmazon"></div>
+<script type="text/javascript">
+    var authRequest;
+    OffAmazonPayments.Button("PayWithAmazon", "A26EDUPKE5MR47", {
+        type:  "PwA",
+        color: "Gold",
+        size:  "medium",
+        useAmazonAddressBook: true,
+        authorization: function() {
+            var loginOptions = {scope: 'profile payments:widget'};
+            authRequest = amazon.Login.authorize(loginOptions, function () {
+                renderWidgets();
+            });
+        },
+        onError: function(error) {
+            // Write your custom error handling
+        }
+    });
+</script>
+
+<button id="Logout">Logout</button>
+
+<hr />
+<h1>Widget</h1>
+<style type="text/css">
+  #addressBookWidgetDiv{width: 400px; height: 228px;}
+</style>
+
+<div id="addressBookWidgetDiv"></div>
+<div id="walletWidgetDiv"></div>
+<div id="consentWidgetDiv"></div>
+<script type="text/javascript">
+    var amazonBillingAgreementId = null;
+
+    function renderWidgets() {
+        new OffAmazonPayments.Widgets.AddressBook({
+            sellerId: 'A26EDUPKE5MR47',
+            agreementType: 'BillingAgreement',
+            onReady: function(billingAgreement) {
+                amazonBillingAgreementId = billingAgreement.getAmazonBillingAgreementId();
+                document.getElementById("oroID").value = amazonBillingAgreementId;
+                renderConsent();
+            },
+            onAddressSelect: function(billingAgreement) {
+                // Replace the following code with the action you that want to perform
+                // after the address is selected.
+                // The amazonBillingAgreementId can be used to retrieve
+                // the address details by calling the GetBillingAgreementDetails operation.
+                // If rendering the AddressBook and Wallet widgets on the same page, you
+                // should wait for this event before you render the Wallet widget for
+                // the first time.
+                // The Wallet widget will re-render itself on all subsequent
+                // onAddressSelect events, without any action from you. It is not
+                // recommended that you explicitly refresh it.
+            },
+            design: {
+                designMode: 'responsive'
+            },
+            onError: function(error) {
+                // your error handling code
+                widgetError('addressBook',error);
+            }
+        }).bind("addressBookWidgetDiv");
+        new OffAmazonPayments.Widgets.Wallet({
+            sellerId: 'A26EDUPKE5MR47',
+            design: {
+                size: {width:'400px', height:'260px'}
+            },
+            onPaymentSelect: function(orderReference) {
+                // Display your custom complete purchase button
+            },
+            onError: function(error) {
+                // custom error handling logic
+                widgetError('wallet',error);
+            }
+        }).bind("walletWidgetDiv");
+
+    }
+
+    function renderConsent() {
+        new OffAmazonPayments.Widgets.Consent({
+            sellerId: 'A26EDUPKE5MR47',
+            // amazonBillingAgreementId obtained from the Amazon Address Book widget.
+            amazonBillingAgreementId: amazonBillingAgreementId,
+            design: {
+                size: {width: '400px', height: '260px'}
+            },
+            onReady: function(billingAgreementConsentStatus){
+                // Called after widget renders
+                buyerBillingAgreementConsentStatus =
+                    billingAgreementConsentStatus.getConsentStatus();
+                // getConsentStatus returns true or false
+                // true – checkbox is selected
+                // false – checkbox is unselected - default
+            },
+            onConsent: function(billingAgreementConsentStatus) {
+                buyerBillingAgreementConsentStatus =
+                    billingAgreementConsentStatus.getConsentStatus();
+
+                // getConsentStatus returns true or false
+                // true – checkbox is selected – buyer has consented
+                // false – checkbox is unselected – buyer has not consented
+
+                // Replace this code with the action that you want to perform
+                // after the consent checkbox is selected/unselected.
+            },
+            onError: function(error) {
+                // your error handling code
+                widgetError('consent',error);
+            }
+        }).bind("consentWidgetDiv");
+    }
+
+
+
+    function widgetError (whichWidget, error) {
+        alert("The following error occurred while rendering the " + whichWidget + " widget: " + error.getErrorMessage());
+    }
+</script>
+
+<div>
+  <p>Order Reference ID:</p>
+  <input type="text" id="oroID" value="none" />
+</div>
+
+
+</body>
+</html>
