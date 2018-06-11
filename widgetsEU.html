@@ -2,7 +2,7 @@
 <head>
   <script type='text/javascript'>
       window.onAmazonLoginReady = function() {
-          amazon.Login.setClientId('amzn1.application-oa2-client.2f36480d8a284644a87c752920fd6d57');
+          amazon.Login.setClientId('amzn1.application-oa2-client.813a846e251847c390d3b21ff4f00d4d');
       };
   </script>
 
@@ -13,7 +13,7 @@
   </script>
 
   <!-- this is the sandbox URL for Widgets.js -->
-  <script type='text/javascript' src='https://static-eu.payments-amazon.com/OffAmazonPayments/de/sandbox/js/Widgets.js?sellerId=A26EDUPKE5MR47'>
+  <script type='text/javascript' src='https://static-eu.payments-amazon.com/OffAmazonPayments/de/sandbox/js/Widgets.js?sellerId=A1XF5UESDEFH8W'>
   </script>
 
 </head>
@@ -24,7 +24,7 @@
 <div id="PayWithAmazon"></div>
 <script type="text/javascript">
     var authRequest;
-    OffAmazonPayments.Button("PayWithAmazon", "A26EDUPKE5MR47", {
+    OffAmazonPayments.Button("PayWithAmazon", "A1XF5UESDEFH8W", {
         type:  "PwA",
         color: "Gold",
         size:  "medium",
@@ -57,7 +57,7 @@
 
     function renderWidgets() {
         new OffAmazonPayments.Widgets.AddressBook({
-            sellerId: 'A26EDUPKE5MR47',
+            sellerId: 'A1XF5UESDEFH8W',
             agreementType: 'BillingAgreement',
             onReady: function(billingAgreement) {
                 amazonBillingAgreementId = billingAgreement.getAmazonBillingAgreementId();
@@ -85,7 +85,7 @@
             }
         }).bind("addressBookWidgetDiv");
         new OffAmazonPayments.Widgets.Wallet({
-            sellerId: 'A26EDUPKE5MR47',
+            sellerId: 'A1XF5UESDEFH8W',
             design: {
                 size: {width:'400px', height:'260px'}
             },
@@ -102,7 +102,7 @@
 
     function renderConsent() {
         new OffAmazonPayments.Widgets.Consent({
-            sellerId: 'A26EDUPKE5MR47',
+            sellerId: 'A1XF5UESDEFH8W',
             // amazonBillingAgreementId obtained from the Amazon Address Book widget.
             amazonBillingAgreementId: amazonBillingAgreementId,
             design: {
