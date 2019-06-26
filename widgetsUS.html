@@ -13,7 +13,7 @@
   </script>
 
   <!-- this is the sandbox URL for Widgets.js -->
-  <script type='text/javascript' src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js?sellerId=A33MDR0GNBPE8W'>
+  <script type='text/javascript' src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js?sellerId=A26EDUPKE5MR47'>
   </script>
 
 </head>
@@ -24,7 +24,7 @@
 <div id="PayWithAmazon"></div>
 <script type="text/javascript">
     var authRequest;
-    OffAmazonPayments.Button("PayWithAmazon", "A33MDR0GNBPE8W", {
+    OffAmazonPayments.Button("PayWithAmazon", "A26EDUPKE5MR47", {
         type:  "PwA",
         color: "Gold",
         size:  "medium",
@@ -57,7 +57,7 @@
 
     function renderWidgets() {
         new OffAmazonPayments.Widgets.AddressBook({
-            sellerId: 'A33MDR0GNBPE8W',
+            sellerId: 'A26EDUPKE5MR47',
             agreementType: 'BillingAgreement',
             onReady: function(billingAgreement) {
                 amazonBillingAgreementId = billingAgreement.getAmazonBillingAgreementId();
@@ -85,7 +85,7 @@
             }
         }).bind("addressBookWidgetDiv");
         new OffAmazonPayments.Widgets.Wallet({
-            sellerId: 'A33MDR0GNBPE8W',
+            sellerId: 'A26EDUPKE5MR47',
             design: {
                 size: {width:'400px', height:'260px'}
             },
@@ -102,7 +102,7 @@
 
     function renderConsent() {
         new OffAmazonPayments.Widgets.Consent({
-            sellerId: 'A33MDR0GNBPE8W',
+            sellerId: 'A26EDUPKE5MR47',
             // amazonBillingAgreementId obtained from the Amazon Address Book widget.
             amazonBillingAgreementId: amazonBillingAgreementId,
             design: {
