@@ -1,7 +1,5 @@
-# AmazonPayWidgets
-This contains code that stands up the Amazon Pay Widgets that generate a BillingAgreementId used for the Amazon Pay Payment Gateway Integration. It we won't be here forever, because its on my personal github page.
+# Fixus Homepage
+This contains the code for the Fixus App Homepage. Don't hesitate to reach out with questions.
 
-Go to https://tglocicero.github.io/ in incognito mode to use the widgets.  
-username: tlocicero.<span></span>zteam+sandbox@zuora<span></span>.com  
-password: test123
+Visit https://tglocicero.github.io/ to see the current state of the demo site. It updates automatically each time you push to master.
 
